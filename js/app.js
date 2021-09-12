@@ -20,9 +20,9 @@ const showProducts = (products) => {
     <img class="product-image" src=${images}></img>
       </div>
       <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <h5>Rating:${product.rating.rate}<h5>
-      <h5>Average Rating:${product.rating.count}<h5>
+      <p class="fw-bold">Category: ${product.category}</p>
+      <h6 class="text-info">Rating: ${product.rating.rate}</h6>
+      <h6 class="text-info">Average Rating: ${product.rating.count}</h6>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button onclick="loadSingleProduct(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
@@ -46,13 +46,13 @@ const displaySinglePrduct = (data) => {
   const singleResult = document.getElementById("single-result");
   singleResult.innerHTML = '';
   singleResult.innerHTML = `
-  <img src="${data.image}" class="card-img-top" alt="...">
+  <img src="${data.image}" class="card-img-top w-100"  alt="...">
       <div class="card-body">
-        <h5 class="card-title">${data.title}</h5>
-        <h5>Rating:${data.rating.rate}<h5>
-        <h5>Average Rating:${data.rating.count}<h5>
+        <h3 class="card-title">${data.title}</h3>
+        <h5 class="text-info">Rating:${data.rating.rate}<h5>
+        <h5 class="text-info">Average Rating:${data.rating.count}<h5>
         <h3>Price:$ ${data.price}</h3>
-        <p class="card-text">${data.description.slice(0, 50)}</p>
+        <p class="card-text fw-bold">${data.description.slice(0, 50)}</p>
       </div>
   `
 }
