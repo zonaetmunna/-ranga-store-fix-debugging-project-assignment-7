@@ -1,25 +1,28 @@
+
+// onclick function
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
+
 loadProducts();
+
 // show all product in UI 
 const showProducts = (products) => {
-  // console.log(products);
   const allProducts = products.map((pd) => pd);
-  // console.log(allProducts);
   for (const product of allProducts) {
     console.log(product);
     const images = product.image;
+    // create new element
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
       <div>
     <img class="product-image" src=${images}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h3>${product.title.slice(0, 50)}</h3>
       <p class="fw-bold">Category: ${product.category}</p>
       <h6 class="text-info">Rating: ${product.rating.rate}</h6>
       <h6 class="text-info">Average Rating: ${product.rating.count}</h6>
@@ -31,7 +34,7 @@ const showProducts = (products) => {
   }
 };
 
-
+// single product
 // loadSingleProduct()
 const loadSingleProduct = (productId) => {
   // console.log(productId)
@@ -57,6 +60,7 @@ const displaySinglePrduct = (data) => {
   `
 }
 
+// update quantity value
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -72,8 +76,6 @@ const getInputValue = (id) => {
   return converted;
 };
 
-
-// fixs place
 // main price update function
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
@@ -82,7 +84,6 @@ const updatePrice = (id, value) => {
   document.getElementById(id).innerText = total.toFixed(2);
 };
 
-// fix place
 // set innerText function
 const setInnerText = (id, value) => {
   document.getElementById(id).innerText = value.toFixed(2);
