@@ -4,7 +4,7 @@ const loadProducts = () => {
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
-
+loadProducts();
 // show all product in UI 
 const showProducts = (products) => {
   // console.log(products);
