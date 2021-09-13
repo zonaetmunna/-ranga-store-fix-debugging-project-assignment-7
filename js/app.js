@@ -13,7 +13,7 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    console.log(product);
+    // console.log(product);
     const images = product.image;
     // create new element
     const div = document.createElement("div");
@@ -24,15 +24,13 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p class="fw-bold">Category: ${product.category}</p>
-
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star-half-alt"></i>
-      <h6 class="text-info">Rating: ${product.rating.rate}</h6>
-      <h6 class="text-info">Average Rating: ${product.rating.count}</h6>
-      
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star-half-alt text-warning"></i>
+      <h6 class="text-primary">Rating : ${product.rating.rate}</h6>
+      <h6 class="text-primary">Average Rating : ${product.rating.count}</h6>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button onclick="loadSingleProduct(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
@@ -54,17 +52,21 @@ const loadSingleProduct = (productId) => {
 
 const displaySinglePrduct = (data) => {
   const singleResult = document.getElementById("single-result");
-  singleResult.innerHTML = '';
-  singleResult.innerHTML = `
-  <img src="${data.image}" class="card-img-top w-100"  alt="...">
-      <div class="card-body">
-        <h3 class="card-title">${data.title}</h3>
-        <h5 class="text-info">Rating:${data.rating.rate}<h5>
-        <h5 class="text-info">Average Rating:${data.rating.count}<h5>
-        <h3>Price:$ ${data.price}</h3>
-        <p class="card-text fw-bold">${data.description.slice(0, 50)}</p>
-      </div>
+  const div = document.createElement("div");
+  div.innerHTML = '';
+  div.innerHTML = `
+  <div class="card border border-2 rounded-3 shadow-lg mx-auto" style="width: 20rem;">
+    <img src="${data.image}" class="card-img-top w-100"  alt="...">
+    <div class="card-body">
+      <h3 class="card-title">${data.title}</h3>
+      <h5 class="text-info">Rating:${data.rating.rate}<h5>
+      <h5 class="text-info">Average Rating:${data.rating.count}<h5>
+      <h3>Price:$ ${data.price}</h3>
+      <p class="card-text fw-bold">${data.description}</p>
+    </div>
+  </div>
   `
+  singleResult.appendChild(div);
 }
 
 // update quantity value
