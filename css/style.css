@@ -15,14 +15,14 @@ body {
   margin: auto;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
+  margin: 10px;
 }
 .single-product {
   border:2px solid darkgray;
   padding: 10px;
   border-radius: 10px;
   transition: 0.6s;
-  height: 550px;
+  
 
 }
 
