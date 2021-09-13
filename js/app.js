@@ -90,7 +90,6 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  console.log(grandTotal);
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
