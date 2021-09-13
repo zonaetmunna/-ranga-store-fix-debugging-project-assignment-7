@@ -59,8 +59,13 @@ const displaySinglePrduct = (data) => {
     <img src="${data.image}" class="card-img-top w-100"  alt="...">
     <div class="card-body">
       <h3 class="card-title">${data.title}</h3>
-      <h5 class="text-info">Rating:${data.rating.rate}<h5>
-      <h5 class="text-info">Average Rating:${data.rating.count}<h5>
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star text-warning"></i>
+      <i class="fas fa-star-half-alt text-warning"></i>
+      <h5 class="text-info">Rating : ${data.rating.rate}<h5>
+      <h5 class="text-info">Average Rating : ${data.rating.count}<h5>
       <h3>Price:$ ${data.price}</h3>
       <p class="card-text fw-bold">${data.description}</p>
     </div>
