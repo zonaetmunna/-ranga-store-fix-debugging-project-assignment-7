@@ -33,46 +33,11 @@ const showProducts = (products) => {
       <h6 class="text-primary">Average Rating : ${product.rating.count}</h6>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button onclick="loadSingleProduct(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
+      <button id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
-
-// single product
-// loadSingleProduct()
-const loadSingleProduct = (productId) => {
-  // console.log(productId)
-  const url = `https://fakestoreapi.com/products/${productId}`;
-  // console.log(url);
-  fetch(url)
-    .then(res => res.json())
-    .then(data => displaySinglePrduct(data))
-}
-
-const displaySinglePrduct = (data) => {
-  const singleResult = document.getElementById("single-result");
-  const div = document.createElement("div");
-  div.innerHTML = '';
-  div.innerHTML = `
-  <div class="card border border-2 rounded-3 shadow-lg mx-auto" style="width: 20rem;">
-    <img src="${data.image}" class="card-img-top w-100"  alt="...">
-    <div class="card-body">
-      <h3 class="card-title">${data.title}</h3>
-      <i class="fas fa-star text-warning"></i>
-      <i class="fas fa-star text-warning"></i>
-      <i class="fas fa-star text-warning"></i>
-      <i class="fas fa-star text-warning"></i>
-      <i class="fas fa-star-half-alt text-warning"></i>
-      <h5 class="text-info">Rating : ${data.rating.rate}<h5>
-      <h5 class="text-info">Average Rating : ${data.rating.count}<h5>
-      <h3>Price:$ ${data.price}</h3>
-      <p class="card-text fw-bold">${data.description}</p>
-    </div>
-  </div>
-  `
-  singleResult.appendChild(div);
-}
 
 // update quantity value
 let count = 0;
